@@ -19,6 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+const generateRunHandlersFunctionCached = require("./generate-run-handlers-function-cached");
 const precompileMethods = require("./precompile-methods");
 const precompilePath = require("./precompile-path");
 
@@ -58,7 +59,7 @@ const Route = function (methods, path, handlers) {
 
     this.regexp = new RegExp(`^${ precompileMethods(route.methods) } ${ precompilePath(route.path) }$`);
 
-    this._generatedRunHandlersFunction = Route.generateRunHandlersFunction(handlers);
+    this._generatedRunHandlersFunction = generateRunHandlersFunctionCached(handlers);
 };
 
 Object.assign(Route, {
@@ -78,7 +79,7 @@ Object.assign(Route.prototype, {
     },
 
     runHandlers: function (req, res) {
-        return this._generatedRunHandlersFunction(handlers, this._Promise, req, res);
+        return this._generatedRunHandlersFunctionCached(handlers, this._Promise, req, res);
     },
 });
 
