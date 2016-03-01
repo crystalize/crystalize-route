@@ -42,7 +42,7 @@ const generateRunHandlersFunction = function (name, handlers) {
         ;
     `);
 
-    cache[cacheKey] = eval(codeString);
+    return eval(codeString);
 };
 
 module.exports = generateRunHandlersFunction;

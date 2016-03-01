@@ -1,6 +1,6 @@
 {
   "name": "crystalize-route",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/crystalize/crystalize-route/issues"
   },
-  "homepage": "https://github.com/crystalize/crystalize-route#readme"
+  "homepage": "https://github.com/crystalize/crystalize-route#readme",
+  "dependencies": {
+    "crystalize-promise": "0.0.1"
+  }
 }
